@@ -13,13 +13,6 @@
     wait_for_ip_address: False
     template: "{{ os_template }}"
     folder: "/{{ env }}"
-    networks:
-    - name: VM Network
-      ip: "{{ primary_ip }}"
-      netmask: 255.255.0.0
-    - name: VM Network
-      ip: "{{ secondary_ip }}"
-      netmask: 255.255.0.0
     hardware:
       hotadd_cpu: True
       hotremove_cpu: True
