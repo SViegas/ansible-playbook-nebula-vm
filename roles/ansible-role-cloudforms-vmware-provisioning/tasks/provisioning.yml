@@ -3,7 +3,7 @@
 
 - name: "Provisioning Virtual Machine"
   vmware_guest:
-    hostname: vcenter.example.com
+    hostname: vcenter-b900.rhpds.opentlc.com
     username: root
     password: "r3dh4t1!"
     datacenter: "{{ datacenter }}"
@@ -34,7 +34,7 @@
 
 - name: "Powering on Virtual Machine"
   vmware_guest:
-    hostname: vcenter.example.com
+    hostname: vcenter-b900.rhpds.opentlc.com
     username: root
     password: "r3dh4t1!"
     datacenter: "{{ datacenter }}"
