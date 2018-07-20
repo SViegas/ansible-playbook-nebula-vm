@@ -3,9 +3,9 @@
 
 - name: "Powering Off Virtual Machine"
   vmware_guest:
-    hostname: 26.176.67.98
-    username: cloudforms
-    password: "Password@123"
+    hostname: vcenter-b900.rhpds.opentlc.com
+    username: root
+    password: "r3dh41!"
     datacenter: "{{ datacenter }}"
     validate_certs: no
     name: "{{ vm_name }}"
@@ -17,9 +17,9 @@
 
 - name: "Deleting Virtual Machine"
   vmware_guest:
-    hostname: 26.176.67.98
-    username: cloudforms
-    password: "Password@123"
+    hostname: vcenter-b900.rhpds.opentlc.com
+    username: root
+    password: "r3dh41!"
     datacenter: "{{ datacenter }}"
     name: "{{ vm_name }}"
     validate_certs: no
