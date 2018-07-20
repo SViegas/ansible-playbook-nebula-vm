@@ -1,0 +1,55 @@
+---
+# tasks file for ansible-role-cloudforms-vmware-provision
+
+- name: "Provisioning Virtual Machine"
+  vmware_guest:
+    hostname: vcenter.example.com
+    username: root
+    password: "r3dh4t1!"
+    datacenter: "{{ datacenter }}"
+    validate_certs: no
+    name: "{{ vm_name }}"
+    state: poweredoff
+    wait_for_ip_address: False
+    template: "{{ os_template }}"
+    folder: "/{{ env }}"
+    networks:
+    - name: VM Network
+      ip: "{{ primary_ip }}"
+      netmask: 255.255.0.0
+    - name: VM Network
+      ip: "{{ secondary_ip }}"
+      netmask: 255.255.0.0
+    hardware:
+      hotadd_cpu: True
+      hotremove_cpu: True
+      hotadd_memory: True
+      memory_mb: "{{ memory }}"
+      num_cpus: "{{ cpu }}"
+      scsi: paravirtual
+    disk:
+    - size_gb: "{{ host_disk }}"
+      type: thin
+      autoselect_datastore: True
+    - size_gb: "{{ data_disk }}"
+      type: thin
+      autoselect_datastore: True
+  register: vm_create
+
+- name: "Task Result: Provisioning Virtual Machine"
+  debug: var=vm_create
+
+- name: "Powering on Virtual Machine"
+  vmware_guest:
+    hostname: vcenter.example.com
+    username: root
+    password: "r3dh4t1!"
+    datacenter: "{{ datacenter }}"
+    validate_certs: no
+    name: "{{ vm_name }}"
+    state: poweredon
+  register: vm_power_state
+
+- name: "Task Result: Powering on Virtual Machine"
+  debug: var=vm_power_state
+

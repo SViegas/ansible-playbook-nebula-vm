@@ -1,0 +1,7 @@
+- name: Red Hat CloudForms | VMWare Provisioning
+  hosts: all
+  gather_facts: false
+  connection: local
+  
+  roles:
+    - ansible-role-cloudforms-vmware-deprovisioning

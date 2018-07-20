@@ -1,0 +1,30 @@
+---
+# tasks file for ansible-role-cloudforms-vmware-provision
+
+- name: "Powering Off Virtual Machine"
+  vmware_guest:
+    hostname: 26.176.67.98
+    username: cloudforms
+    password: "Password@123"
+    datacenter: "{{ datacenter }}"
+    validate_certs: no
+    name: "{{ vm_name }}"
+    state: poweredoff
+  register: vm_power_state
+
+- name: "Task Result: Powering Off Virtual Machine"
+  debug: var=vm_power_state
+
+- name: "Deleting Virtual Machine"
+  vmware_guest:
+    hostname: 26.176.67.98
+    username: cloudforms
+    password: "Password@123"
+    datacenter: "{{ datacenter }}"
+    name: "{{ vm_name }}"
+    validate_certs: no
+    state: absent
+  register: vm_delete
+
+- name: "Task Result: Delete Virtual Machine"
+  debug: var=vm_delete

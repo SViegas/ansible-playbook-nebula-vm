@@ -1,0 +1,5 @@
+---
+# tasks file for ansible-role-cloudforms-vmware-provision
+
+- include: info.yml
+- include: provisioning.yml

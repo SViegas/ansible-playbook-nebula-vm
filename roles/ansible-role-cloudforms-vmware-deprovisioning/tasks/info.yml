@@ -1,0 +1,26 @@
+---
+# tasks file for ansible-role-cloudforms-vmware-provision
+
+- name: "Hostname"
+  debug: var=vm_name
+
+- name: "Memory"
+  debug: var=memory
+
+- name: "CPU"
+  debug: var=cpu
+
+- name: "Environment"
+  debug: var=environment
+
+- name: "Data Center"
+  debug: var=datacenter
+
+- name: "Host Disk Size"
+  debug: var=host_disk
+
+- name: "Data Disk Size"
+  debug: var=data_disk
+
+- name: "Operating System Template Name"
+  debug: var=os_template
