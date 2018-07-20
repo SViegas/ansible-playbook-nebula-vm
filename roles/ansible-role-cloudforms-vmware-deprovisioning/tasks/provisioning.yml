@@ -5,7 +5,7 @@
   vmware_guest:
     hostname: vcenter-b900.rhpds.opentlc.com
     username: root
-    password: "r3dh41!"
+    password: "r3dh4t1!"
     datacenter: "{{ datacenter }}"
     validate_certs: no
     name: "{{ vm_name }}"
@@ -19,7 +19,7 @@
   vmware_guest:
     hostname: vcenter-b900.rhpds.opentlc.com
     username: root
-    password: "r3dh41!"
+    password: "r3dh4t1!"
     datacenter: "{{ datacenter }}"
     name: "{{ vm_name }}"
     validate_certs: no
