@@ -1,0 +1,12 @@
+  tasks:
+    - name: "Get IPV4 Addresses From List"
+      include_role:
+         name: ansible-role-get-ipv4-addresses
+      
+    - name: "Release IP address from IPAM"
+      include_role: 
+        name: ansible-role-ipam-reserve-ip-address
+      with_items:
+        - "{{ ip_addresses }}"
+      loop_control:
+        loop_var: ip_address
