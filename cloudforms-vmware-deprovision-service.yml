@@ -1,0 +1,14 @@
+
+- name: Red Hat CloudForms | VMWare Deprovision Service
+  hosts: all
+  gather_facts: false
+  connection: local
+  
+  tasks:
+    - name: "Deprovision VMs"
+      include_role: 
+        name: ansible-role-cloudforms-vmware-deprovisioning
+      with_items:
+        - "{{ service_vms }}"
+      loop_control:
+        loop_var: vm
