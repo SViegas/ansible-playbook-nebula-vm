@@ -1,6 +1,11 @@
 ---
 # tasks file for ansible-role-cloudforms-vmware-provision
 
+- name: "Define vm_name"
+  set_fact:
+    vm_name: "{{ vm.name }}"
+  when: vm is defined
+
 - name: "Hostname"
   debug: var=vm_name
 
