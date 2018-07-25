@@ -8,10 +8,9 @@
     password: "r3dh4t1!"
     datacenter: "{{ datacenter }}"
     validate_certs: no
-    name: "{{ item.name }}"
+    name: "{{ vm_name }}"
     state: poweredoff
   register: vm_power_state
-  with_items: "{{ service_vms }}"
 
 - name: "Task Result: Powering Off Virtual Machine"
   debug: var=vm_power_state
@@ -22,11 +21,10 @@
     username: root
     password: "r3dh4t1!"
     datacenter: "{{ datacenter }}"
-    name: "{{ item.name }}"
+    name: "{{ vm_name }}"
     validate_certs: no
     state: absent
   register: vm_delete
-  with_items: "{{ service_vms }}"
 
 - name: "Task Result: Delete Virtual Machine"
   debug: var=vm_delete
